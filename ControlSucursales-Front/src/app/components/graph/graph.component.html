@@ -1,0 +1,30 @@
+<body>
+    <h1 class="text-center" style="padding-top: 3%;"*ngIf="branchOffice">{{branchOffice.name}}</h1>
+    <div class="me-5 row" style="display: flex; justify-content: space-around;align-items: center;">
+      <table class="mt-5 mb-5">
+          <thead>  
+            <tr>
+              <th>No</th>
+              <th>Name</th>
+              <th>Provider</th>
+              <th>Stock</th>
+              <th>Sales</th>
+            </tr>  
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products, let i=index">
+              <td>{{i+1}}</td>
+              <td>{{product.name}}</td>
+              <td>{{product.provider}}</td>
+              <td>{{product.stock}}</td>
+              <td>{{product.sales}} </td>
+            </tr>
+          </tbody>
+      </table>
+      <canvas baseChart
+                  [data]="pieChartData"
+                  [type]="pieChartType"
+                  [options]="pieChartOptions" class=" mt-5 grafica">
+          </canvas>
+    </div>
+    </body>

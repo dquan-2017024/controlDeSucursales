@@ -1,0 +1,71 @@
+<body>
+    <nav class="navbar" style="display: flex;justify-content: space-around;">
+        <form class="d-flex" style="align-items: center;">
+          <input [(ngModel)]="search" (keyup)="searchName()"  name="search" style="max-width: 200px;" class="form-control me-2"  type="text" placeholder="Search By Name" aria-label="Search">
+          <a (click)="searchProduct()" class="boton esmeralda text-center" style="max-width: 165px;" type="button">Search Provider</a>
+        </form>
+        <h2 class="ms-3">{{branchOffice}}</h2>
+        <a [routerLink]="'/branchOffice/graph/'+idProduct" class="boton celeste mt-2 ms-2 me-3" type="submit">Graph</a>
+
+    </nav>
+          
+        <div class="me-5" class="pos">
+          <table style="width: 70%;">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Name</th>
+                  <th>Provider</th>
+                  <th>Stock</th>
+                  <th>Sales</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let product of products | search:search | searchProvider:searchProvider, let i=index">
+                  <td>{{i+1}}</td>
+                  <td><a (click)="getProduct(product._id)" data-bs-target="#modalExample" data-bs-toggle="modal" class="btn text-light" type="submit">{{product.name}}</a></td>
+                  <td>{{product.provider}}</td>
+                  <td>{{product.stock}}</td>
+                  <td>{{product.sales}}</td>
+                </tr>
+              </tbody>
+          </table>
+        </div>
+        <div class="text-center">
+          <a (click)="getProducts(idProduct)" type="button" class="boton celeste1 ms-3 me-3 mb-2">Order from highest to lowest</a>
+          <a (click)="orderProducts(idProduct)" type="button" class="boton celeste1 ms-3 me-3 mb-2">Order from lowest to highest</a>
+        </div>
+  
+        <div  class="modal" tabindex="-1" id="modalExample" data-bs-backdrop="false" position="fixed" >
+          <div class="modal-dialog">
+            <div class="modal-content" style="background-color: #F5F6F7;">
+              <div class="modal-header">
+                <h3 class="modal-title">Distribute products</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form (ngSubmit)="sellProduct()" #buyProductForm="ngForm">
+                  <div *ngIf="productBuy" class="form-group mb-3">
+                    <label  class="form-label ">Name</label>
+                    <input [(ngModel)]="productBuy.name" name="name" type="text"  required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4" disabled>
+                  </div>
+                  <div *ngIf="productBuy"class="form-group mb-3">
+                    <label  class="form-label">Provider</label>
+                    <input [(ngModel)]="productBuy.provider" name="provider"  type="text"  required="" class="form-control rounded-pill border-0 shadow-sm px-4" disabled>
+                  </div>
+                  <div *ngIf="productBuy" class="form-group mb-3">
+                    <label  class="form-label">Quantity</label>
+                    <input [(ngModel)]="productBranchOffice.stock" name="stock"  type="number"  required="" class="form-control rounded-pill border-0 shadow-sm px-4 ">
+                  </div>
+                  
+              <div class="modal-footer">
+                <button type="submit" class="boton esmeralda me-5 text" data-bs-dismiss="modal" >Distribute</button>
+                <a type="button" class="boton gris ms-2" data-bs-dismiss="modal">Close</a>
+              </div>
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        </body>

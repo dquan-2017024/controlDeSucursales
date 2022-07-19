@@ -1,0 +1,33 @@
+{
+  "name": "control-sucursales-back",
+  "version": "1.0.0",
+  "description": "Proyecto final en grupo Bimestre II",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dperez-2017061/ControlSucursales.git"
+  },
+  "author": "Grupo 4",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dperez-2017061/ControlSucursales/issues"
+  },
+  "homepage": "https://github.com/dperez-2017061/ControlSucursales#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "helmet": "^5.0.2",
+    "jwt-simple": "^0.5.6",
+    "moment": "^2.29.3",
+    "mongoose": "^6.3.3"
+  }
+}

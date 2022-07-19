@@ -1,0 +1,28 @@
+<body>
+    <h2 class="ms-3 text-center">{{enterprise}}</h2>
+  
+<div class="pos">
+  <table class="mb-3" style="width: 70%;">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Name</th>
+          <th>Address</th>
+          <th>BusinessHours</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let branchOffice of branchOffices; let i=index">
+          <td>{{i+1}}</td>
+          <td>{{branchOffice.name}}</td>
+          <td>{{branchOffice.address}}</td>
+          <td>{{branchOffice.businessHours}}</td>
+          <td>{{branchOffice.phone}}</td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+
+
+</body>

@@ -1,0 +1,97 @@
+<navbar></navbar>
+
+<body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto">
+          <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
+            <div class="card-img-left d-none d-md-flex">
+              <!-- Background image for card set in CSS! -->
+            </div>
+            <div class="card-body p-4 p-sm-5">
+              <h5 class="card-title text-center mb-5 fw-light fs-5">Register</h5>
+              <form (ngSubmit)="createEnterprise(registerForm)" #registerForm="ngForm">
+  
+                <span *ngIf="!name.valid && name.touched" class="requiredField">
+                  Required field
+                </span>
+                <div class="form-floating mb-3">
+                  <input [(ngModel)]="enterprise.name" #name="ngModel" name="name" type="text" class="form-control" id="floatingInputUsername" placeholder="myusername" required autofocus>
+                  <label for="floatingInputUsername">Name</label>
+                </div>
+  
+                <span *ngIf="!type.valid && type.touched" class="requiredField">
+                  Required field
+                </span>
+                <div class="form-floating mb-3">
+                  <input [(ngModel)]="enterprise.type" #type="ngModel" name="type" type="text" class="form-control" id="floatingInputUsername" placeholder="myusername" required autofocus>
+                  <label for="floatingInputUsername">Type</label>
+                </div>
+  
+                <span *ngIf="!town.valid && town.touched" class="requiredField">
+                  Required field
+                </span>
+                <div class="form-floating mb-3">
+                  <input [(ngModel)]="enterprise.town" #town="ngModel" name="town" type="text" class="form-control" id="floatingInputUsername" placeholder="myusername" required autofocus>
+                  <label for="floatingInputUsername">Town</label>
+                </div>
+                <hr>
+  
+                <span *ngIf="!password.valid && password.touched" class="requiredField">
+                  Required field
+                </span>
+                <div class="form-floating mb-3">
+                  <input [(ngModel)]="enterprise.password" #password="ngModel" name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+                  <label for="floatingPassword">Password</label>
+                </div>
+  
+                <span *ngIf="!confirm.valid && confirm.touched" class="requiredField">
+                  Required field
+                </span>
+                <div class="form-floating mb-3">
+                  <input (keyup)="checkPass()" [(ngModel)]="confirmPass" #confirm="ngModel" name="confirmPassword" type="password" class="form-control" id="floatingPasswordConfirm" placeholder="Confirm Password" required>
+                  <label for="floatingPasswordConfirm">Confirm Password</label>
+                </div>
+                <div class="form-check d-flex justify-content-center mb-5">
+                  <input
+                    ngModel
+                    name="check"
+                    class="form-check-input me-2"
+                    type="checkbox"
+                    value=""
+                    id="form2Example3c"
+                    required
+                  />
+                  <label class="form-check-label" for="form2Example3">
+                    Acepto todos los <a href="">Terminos de servicio/Uso</a>
+                  </label>
+                </div>
+                <div class="d-grid mb-2">
+                  <button [disabled]="!registerForm.form.valid || !pass" class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Register</button>
+                </div>
+  
+                <a class="d-block text-center mt-2 small" routerLink="/login">Have an account? Sign In</a>
+                
+                <hr class="my-4">
+  
+                <div class="d-grid mb-2">
+                  <a class="btn btn-lg btn-google btn-login fw-bold text-uppercase">
+                    <i class="fab fa-google me-2"></i> Sign up with Google
+                  </a>
+                </div>
+  
+                <div class="d-grid">
+                  <a class="btn btn-lg btn-facebook btn-login fw-bold text-uppercase">
+                    <i class="fab fa-facebook-f me-2"></i> Sign up with Facebook
+                  </a>
+                </div>
+  
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+<footer></footer>

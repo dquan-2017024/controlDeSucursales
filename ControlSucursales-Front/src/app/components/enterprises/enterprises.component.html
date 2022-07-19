@@ -1,0 +1,62 @@
+<body>
+    <div class="cent" >
+        <h2>Enterprises</h2>
+      <a class="btn" routerLink="/register">
+
+        <img src="../../../assets/img/add Enterprise.png"
+          style="width: 110px;">
+    </a>
+    </div>
+    
+  <div class="me-5 row" style="padding-top: 20px;">
+    <div class="container body row">
+
+      <div class="card text-center" *ngFor="let enterprise of enterprises;let i = index">
+        <div class="face face1">
+          <div class="content">
+            <span class="stars"></span>
+            <a (click)="navigate(enterprise._id)" class="btn" type="submit"><p class="java">{{enterprise.name}}</p></a>
+
+            <p class="java">{{enterprise.type}}</p>
+            <p class="java">{{enterprise.town}}</p>
+            <a (click)="getEnterprise(enterprise._id)" class="boton azul mt-2 me-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
+                aria-controls="offcanvas" type="submit">Update</a>
+                <a (click)="deleteEnterprise(enterprise._id)" class="boton rojo mt-2 ms-2 me-3" type="submit">Delete</a>
+          </div>
+        </div>
+        <div class="face face2">
+          <h2 *ngIf="i<9">0{{i+1}}</h2>
+          <h2 *ngIf="i>8">{{i+1}} </h2>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel" style="background-color: #F5F6F7;">
+    <div class="offcanvas-header">
+      <h2 class="offcanvas-title text-dark" id="offcanvasLabel">Update</h2>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div  class="offcanvas-body">
+      <form (ngSubmit)="updateEnterprise()" *ngIf="enterpriseUpdate" #updateForm="ngForm">
+        <div class="form-group mb-3">
+          <label  class="form-label ">Name</label>
+          <input [(ngModel)]="enterpriseUpdate.name" name="name" id="inputEmail" type="text"  required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
+        </div>
+        <div class="form-group mb-3">
+          <label  class="form-label">Type</label>
+          <input [(ngModel)]="enterpriseUpdate.type" name="type" id="inputPassword" type="text"  required="" class="form-control rounded-pill border-0 shadow-sm px-4 ">
+        </div>
+        <div class="form-group mb-3">
+          <label  class="form-label">Town</label>
+          <input [(ngModel)]="enterpriseUpdate.town" name="town" type="text"  required="" class="form-control rounded-pill border-0 shadow-sm px-4 ">
+        </div>
+        <div class="text-center">
+        <button type="submit" class="boton celeste me-5" data-bs-dismiss="offcanvas">Update</button>
+        <a type="button" class="boton gris ms-2" data-bs-dismiss="offcanvas">Close</a>
+      </div>
+    </form>
+    </div>
+  </div>
+  </body>

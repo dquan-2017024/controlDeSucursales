@@ -1,0 +1,49 @@
+<navbar></navbar>
+
+<div class="container-fluid">
+    <div class="row no-gutter">
+        <!-- The image half -->
+        <div class="col-md-6 d-none d-md-flex bg-image"></div>
+
+
+        <!-- The content half -->
+        <div class="col-md-6 bg-light">
+            <div class="login d-flex align-items-center py-5">
+
+                <!-- Demo content-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 col-xl-7 mx-auto">
+                            <h3 class="display-4">Split page!</h3>
+                            <p class="text-muted mb-4">Create a login split page using Bootstrap 4.</p>
+                            <form (ngSubmit)="login()" #loginForm="ngForm" >
+                                <div class="form-group mb-3">
+                                    <input [(ngModel)]="enterprise.name" name="name" id="inputEmail" type="email" placeholder="Name" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <input [(ngModel)]="enterprise.password" name="password" id="inputPassword" type="password" placeholder="Password" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                                </div>
+                                <div class="form-check d-flex ms-1 mb-5">
+                                    <input
+                                      name="check"
+                                      class="form-check-input me-2"
+                                      type="checkbox"
+                                      id="form2Example3c"
+                                    />
+                                    <label class="form-check-label" for="form2Example3">
+                                      Remember password
+                                    </label>
+                                  </div>
+                                <button [disabled]="!loginForm.form.valid" type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Sign in</button>
+                            </form>
+                        </div>
+                    </div>
+                </div><!-- End -->
+
+            </div>
+        </div><!-- End -->
+
+    </div>
+</div>
+
+<footer></footer>

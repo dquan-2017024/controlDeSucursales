@@ -1,0 +1,148 @@
+<body>
+    <nav class="navbar" style="display: flex;justify-content: space-around;">
+      <form class="d-flex" style="align-items: center;">
+        <input [(ngModel)]="search" (keyup)="searchName()" name="search" style="max-width: 200px;"
+          class="form-control me-2" type="text" placeholder="Search By Name" aria-label="Search">
+        <a (click)="searchProduct()" class="boton esmeralda text-center" style="max-width: 165px;" type="button">Search
+          Provider</a>
+      </form>
+      <h2 class="ms-3">{{enterprise}}</h2>
+      <a class="btn" data-bs-target="#exampleModal" data-bs-toggle="modal">
+        <img src="../../../assets/img/cesta-de-la-compra.png" style="width: 110px;">
+      </a>
+    </nav>
+    <div class="me-5 mt-4" class="pos">
+      <table class="mb-3">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Provider</th>
+            <th>Stock</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products | search:search | searchProvider:searchProvider , let i=index">
+            <td>{{i+1}}</td>
+            <td><a (click)="getProduct(product._id)" data-bs-target="#modalExample" data-bs-toggle="modal"
+                class="btn text-light" type="submit">{{product.name}}</a></td>
+            <td>{{product.provider}}</td>
+            <td>{{product.stock}}</td>
+            <td>
+              <a (click)="getProduct(product._id)" class="boton amethyst mt-2 me-2" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvas" aria-controls="offcanvas" type="submit">Update</a>
+              <a (click)="deleteProduct(product._id)" class="boton oscuro mt-2 ms-2 me-3" type="submit">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="modal" tabindex="-1" id="exampleModal" data-bs-backdrop="false" position="fixed">
+      <div class="modal-dialog">
+        <div class="modal-content" style="background-color: #F5F6F7;">
+          <div class="modal-header">
+            <h3 class="modal-title">Add product </h3>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form (ngSubmit)="addProduct(addProductForm)" #addProductForm="ngForm">
+              <div class="form-group mb-3">
+                <label class="form-label ">Name</label>
+                <input [(ngModel)]="product.name" name="name" type="text" required="" autofocus=""
+                  class="form-control rounded-pill border-0 shadow-sm px-4">
+              </div>
+              <div class="form-group mb-3">
+                <label class="form-label">Provider</label>
+                <input [(ngModel)]="product.provider" name="provider" id="inputPassword" type="text" required=""
+                  class="form-control rounded-pill border-0 shadow-sm px-4 ">
+              </div>
+              <div class="form-group mb-3">
+                <label class="form-label">Stock</label>
+                <input [(ngModel)]="product.stock" name="stock" id="inputPassword" type="number" required=""
+                  class="form-control rounded-pill border-0 shadow-sm px-4 ">
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="boton esmeralda me-5 text" data-bs-dismiss="modal">Add</button>
+                <a type="button" class="boton gris ms-2" data-bs-dismiss="modal">Close</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="modal" tabindex="-1" id="modalExample" data-bs-backdrop="false" position="fixed">
+      <div class="modal-dialog">
+        <div class="modal-content" style="background-color: #F5F6F7;">
+          <div class="modal-header">
+            <h3 class="modal-title">Distribute products</h3>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form (ngSubmit)="distributeProducts(distributeProductsForm)" #distributeProductsForm="ngForm">
+              <div *ngIf="productUpdated" class="form-group mb-3">
+                <label class="form-label ">Name</label>
+                <input [(ngModel)]="productUpdated.name" name="name" type="text" required="" autofocus=""
+                  class="form-control rounded-pill border-0 shadow-sm px-4" disabled>
+              </div>
+              <div *ngIf="productUpdated" class="form-group mb-3">
+                <label class="form-label">Provider</label>
+                <input [(ngModel)]="productUpdated.provider" name="provider" type="text" required=""
+                  class="form-control rounded-pill border-0 shadow-sm px-4" disabled>
+              </div>
+              <div *ngIf="productUpdated" class="form-group mb-3">
+                <label class="form-label">Quantity</label>
+                <input [(ngModel)]="productBranchOffice.stock" name="stock" type="number" required=""
+                  class="form-control rounded-pill border-0 shadow-sm px-4 ">
+              </div>
+              <div class="mb-3" *ngIf="productUpdated">
+                <label class="form-label">BranchOffice</label>
+                <select [(ngModel)]="productBranchOffice.branchOffice" style="font-size: 16px;" name="branchOffice"
+                  class="form-select form-select-lg mb-3 rounded-pill border-0 shadow-sm px-4"
+                  aria-label="Default select example">
+                  <option style="font-family: sans-serif; font-size: 16px;" *ngFor="let branchOffice of branchOffices"
+                    value="{{ branchOffice.name }}">{{ branchOffice.name }}</option>
+                </select>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="boton esmeralda me-5 text" data-bs-dismiss="modal">Distribute</button>
+                <a type="button" class="boton gris ms-2" data-bs-dismiss="modal">Close</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel"
+      style="background-color: #F5F6F7;">
+      <div class="offcanvas-header">
+        <h2 class="offcanvas-title" id="offcanvasLabel">Update Product</h2>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <form (ngSubmit)="updateProduct()" *ngIf="productUpdated">
+          <div class="form-group mb-3">
+            <label class="form-label ">Name</label>
+            <input [(ngModel)]="productUpdated.name" name="name" id="inputEmail" type="text" required="" autofocus=""
+              class="form-control rounded-pill border-0 shadow-sm px-4">
+          </div>
+          <div class="form-group mb-3">
+            <label class="form-label">Provider</label>
+            <input [(ngModel)]="productUpdated.provider" name="provider" id="inputPassword" type="text" required=""
+              class="form-control rounded-pill border-0 shadow-sm px-4 ">
+          </div>
+          <div class="form-group mb-3">
+            <label class="form-label">Stock</label>
+            <input [(ngModel)]="productUpdated.stock" name="stock" id="inputPassword" type="number" required=""
+              class="form-control rounded-pill border-0 shadow-sm px-4 ">
+          </div>
+          <div class="text-center">
+            <button type="submit" class="boton azul me-5" data-bs-dismiss="offcanvas">Update</button>
+            <a type="button" class="boton gris ms-2" data-bs-dismiss="offcanvas">Close</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>

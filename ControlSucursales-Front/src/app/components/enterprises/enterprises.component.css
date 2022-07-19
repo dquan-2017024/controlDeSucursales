@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+.cent{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+p{
+    font-size: 35px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Righteous", cursive;
+  min-height: 100vh;
+  background-color: #a9c9ff;
+  background-image: linear-gradient(180deg, #a9c9ff 0%, #ffbbec 100%);
+  flex-direction: column;
+  padding-top: 7%;
+  padding-left: 5%;
+  background: -webkit-linear-gradient(45deg, #49a09d, #5f2c82);
+  background: linear-gradient(45deg, #49a09d, #5f2c82);
+  font-family: sans-serif;
+  font-weight: 100;
+}
+  .container {
+    max-width: 100vw;
+    align-items: center;
+    padding: 40px 0;
+    justify-content: space-around;
+  }
+    .card {
+      position: relative;
+      width: 300px;
+      height: 400px;
+      background: #000;
+      border-radius: 15px;
+      box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);
+      margin: 10px 10px;
+    }
+      .face {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+        .face1 {
+          box-sizing: border-box;
+          padding: 20px;
+        }
+          h2 {
+            margin: 0;
+            padding: 0;
+          }
+
+          .java {
+            background-color: #fffc00;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+        
+        .face2 {
+          transition: 0.5s;
+        }
+          h2 {
+            margin: 0;
+            padding: 0;
+            font-size: 10em;
+            color: #fff;
+            transition: 0.5s;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+          }
+        
+    .card:hover .face.face2 {
+      height: 60px;
+    }
+      h2 {
+        font-size: 2em;
+      }
+    .card .face.face2 {
+      background-image: linear-gradient(
+        40deg,
+        #fffc00 0%,
+        #fc00ff 2%,
+        #00fffc 80%
+      );
+      border-radius: 15px;
+    }
+  .boton{
+    display: inline-block;
+	padding: 8px 25px;
+	color: #FFF;
+	border-radius: 6px;
+	text-decoration: none;
+	transition: all .3s ease-in;
+  border: none;
+}
+
+.esmeralda{
+  background: #2ecc71;
+   box-shadow: 0 -5px #27ae60 inset;
+  }
+.esmeralda:hover{
+  box-shadow: 0 -44px #27ae60 inset;
+}
+.rojo{
+    background: #FF0000;
+    box-shadow: 0 -5px #890202 inset;
+}
+.rojo:hover{
+    box-shadow: 0 -44px #890202 inset;
+}
+.azul{
+    background: #004DC1;
+    box-shadow: 0 -5px #003586 inset;
+}
+.azul:hover{
+    box-shadow: 0 -44px #003586 inset;
+}
+.celeste{
+  background: #527394;
+  box-shadow: 0 -5px #184E84 inset;
+}
+.celeste:hover{
+  box-shadow: 0 -44px #184E84 inset;
+}
+.gris{
+  background: #C6CBD0;
+  box-shadow: 0 -5px #989898 inset;
+}
+.gris:hover{
+  box-shadow: 0 -44px #989898 inset;
+}
+.esmeralda{
+  background: #2ecc71;
+   box-shadow: 0 -5px #27ae60 inset;
+  }
+.esmeralda:hover{
+  box-shadow: 0 -44px #27ae60 inset;
+}

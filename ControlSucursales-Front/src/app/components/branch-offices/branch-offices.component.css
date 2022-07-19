@@ -1,0 +1,111 @@
+body {
+    padding-top: 5%;
+    margin: 0px;
+    background: -webkit-linear-gradient(45deg, #49a09d, #5f2c82);
+    background: linear-gradient(45deg, #49a09d, #5f2c82);
+    font-family: sans-serif;
+    font-weight: 100;
+    min-height: 100vh;
+}
+.pos{
+  display: flex; 
+  justify-content: 
+  center;
+  align-items: center;
+  padding-top: 121px; 
+  padding-bottom: 122px;
+}
+label{
+  font-size: 16px;
+}
+table {
+  min-width: 50%;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+th,
+td {
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  text-align: center;
+}
+th {
+  text-align: center;
+}
+thead th {
+  background-color: #55608f;
+}
+tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+tbody td {
+  position: relative;
+}
+tbody td:hover:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -9999px;
+  bottom: -9999px;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: -1;
+}
+.boton{
+    display: inline-block;
+	padding: 8px 25px;
+	color: #FFF;
+	border-radius: 6px;
+	text-decoration: none;
+	transition: all .3s ease-in;
+  border: none;
+}
+
+.esmeralda{
+  background: #2ecc71;
+   box-shadow: 0 -5px #27ae60 inset;
+  }
+.esmeralda:hover{
+  box-shadow: 0 -44px #27ae60 inset;
+}
+.amethyst{
+    background: #9b59b6;
+    box-shadow: 0 -5px #8e44ad inset;
+}
+.amethyst:hover{
+    box-shadow: 0 -44px #8e44ad inset;
+}
+.azul{
+  background: #004DC1;
+  box-shadow: 0 -5px #003586 inset;
+}
+.azul:hover{
+  box-shadow: 0 -44px #003586 inset;
+}
+.celeste{
+  background: #527394;
+  box-shadow: 0 -5px #184E84 inset;
+}
+.celeste:hover{
+  box-shadow: 0 -44px #184E84 inset;
+}
+.gris{
+  background: #C6CBD0;
+  box-shadow: 0 -5px #989898 inset;
+}
+.gris:hover{
+  box-shadow: 0 -44px #989898 inset;
+}
+.esmeralda{
+  background: #2ecc71;
+   box-shadow: 0 -5px #27ae60 inset;
+  }
+.esmeralda:hover{
+  box-shadow: 0 -44px #27ae60 inset;
+}
+.link{
+    color: #FFF;
+    text-decoration: none;
+}
